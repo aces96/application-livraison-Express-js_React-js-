@@ -27,6 +27,11 @@ User.init({
         allowNull: false
     },
 
+    passwordConfirm: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
     telephone: {
         type: DataTypes.STRING,
         allowNull: false
@@ -34,7 +39,7 @@ User.init({
 
     role: {
         type: DataTypes.ENUM,
-        values: ['admin', 'livreur', 'client'],
+        values: ['livreur', 'client'],
         defaultValue: 'client',
     },
 },

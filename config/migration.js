@@ -28,6 +28,6 @@ Facture.belongsTo(Historique)
 
 
 
-sequelize.sync({force: false}, ()=>{
+sequelize.sync({force: true}, ()=>{
     console.log('migration is Done')
 })
