@@ -1,0 +1,24 @@
+{
+  "name": "application-livraison-express-js_react-js-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aces96/application-livraison-Express-js_React-js-.git"
+  },
+  "author": "Achraf Esraidi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aces96/application-livraison-Express-js_React-js-/issues"
+  },
+  "homepage": "https://github.com/aces96/application-livraison-Express-js_React-js-#readme",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.17.0"
+  }
+}
