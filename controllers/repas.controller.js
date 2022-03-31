@@ -1,4 +1,3 @@
-const Order = require('../../models/order')
 const Repas = require('../../models/repas')
 const multer = require('multer')
 
@@ -17,27 +16,28 @@ exports.upload = multer({ storage: storage })
 
 
 
-exports.getAllOrders = async (req,res)=>{
-        try {
-            const orders = await Order.findAll()
 
-            if(!orders){
+exports.getAllRepas = async (req,res)=>{
+        try {
+            const repas = await Repas.findAll()
+
+            if(!repas){
                 res.status(204).json({
-                    message: 'no orders found'
+                    message: 'no repas found'
                 })
             }
-    
+
             res.status(200).json({
                 message: 'success',
-                orders: orders
+                repas: repas
             })
+
             
         } catch (error) {
             res.send(error)
             
         }
 }
-
 
 exports.createRepas = async (req,res)=>{
         try {
