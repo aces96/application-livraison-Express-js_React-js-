@@ -31,3 +31,21 @@ Facture.belongsTo(Historique)
 sequelize.sync({force: true}, ()=>{
     console.log('migration is Done')
 })
+
+
+
+module.exports = {
+    User,
+    Repas,
+    RepasOrder,
+    Categorie,
+    Order,
+    Facture,
+    Historique,
+    
+
+
+
+
+
+}
