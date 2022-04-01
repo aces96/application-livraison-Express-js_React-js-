@@ -42,10 +42,4 @@ module.exports = {
     Order,
     Facture,
     Historique,
-    
-
-
-
-
-
 }
