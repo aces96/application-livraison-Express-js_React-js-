@@ -12,7 +12,9 @@ Order.init({
     },
 
     status: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM,
+        values: ['accepted', 'in progress', 'delivered'],
+        defaultValue: 'accepted'
     },
 
     address: {

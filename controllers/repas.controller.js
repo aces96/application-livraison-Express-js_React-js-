@@ -1,4 +1,4 @@
-const Repas = require('../../models/repas')
+const Repas = require('../models/repas')
 const multer = require('multer')
 
 
@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/images')
     },
     filename: function (req, file, cb) {
-        cb(null, file.fieldname)
+        cb(null, file.originalname)
     }
     })
 exports.upload = multer({ storage: storage })
@@ -44,6 +44,7 @@ exports.createRepas = async (req,res)=>{
 
             const {name,description,prix} = req.body
             const image = req.file.path
+            console.log(image);
         
             const repas = await Repas.create({
                 name: name,

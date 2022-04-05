@@ -9,7 +9,7 @@ exports.getAllUsers= async (req,res)=>{
 
         if(!users){
             res.status(204).json({
-                message: 'no user found'
+                message: 'no user found'    
             })
         }
 
