@@ -1,4 +1,4 @@
-const Categorie = require('../models/categorie')
+const Categorie = require('../config/migration')
 
 
 

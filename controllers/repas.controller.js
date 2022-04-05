@@ -1,4 +1,4 @@
-const Repas = require('../models/repas')
+const {Repas} = require('../config/migration')
 const multer = require('multer')
 
 

@@ -1,6 +1,4 @@
-const Order = require('../models/order')
-const Repas = require('../models/repas')
-const RepasOrder = require('../models/repas_order')
+const {Order,Repas,RepasOrder} = require('../config/migration')
 const jwt = require('jsonwebtoken')
 
 
@@ -38,39 +36,41 @@ exports.submitOrder = async (req,res)=>{
     try {
         const token = req.headers.authorization.split(' ')[1]
         const payload = decodeToken(token)
-        const {repas, address} = req.body        
-        const order =  await Order.create({address : address, clientIdId: payload.id})
-        const Norder = await Order.findOne({where: {clientIdId: payload.id}})
+        const {repas, address, quantity} = req.body        
+        const order =  await Order.create({address : address, UserId: payload.id })
+        const Norder = await Order.findOne({where: {UserId: payload.id}})
 
-        if(repas.length > 1){
-            for(i=0; i<repas.length; i++){
-                const repa = await Repas.findOne({where: {name: repas[i].repas}})
-                console.log(repa);
+        // if(repas.length > 1){
+        //     for(i=0; i<repas.length; i++){
+        //         const repa = await Repas.findOne({where: {name: repas[i].repas}})
+        //         console.log(repa);
     
-                const repasOrder  = await RepasOrder.create({
-                    quantity: e.quantity,
-                    RepaId: repa.id,
-                    OrderId: Norder.id
-                })
+        //         const repasOrder  = await RepasOrder.create({
+        //             quantity: e.quantity,
+        //             RepaId: repa.id,
+        //             OrderId: Norder.id
+        //         })
                 
-            }
-        }
+        //     }
+        // }
+
+        console.log('here')
 
         const repa = await Repas.findOne({where: {name: repas}})
         console.log(repa);
-
+        console.log(Norder.id)
         const repasOrder  = await RepasOrder.create({
-            quantity: repas.quantity,
+            quantity: quantity,
             RepaId: repa.id,
             OrderId: Norder.id
         })
-
         res.status(200).json({
             message: 'order submited successfully',
             order: order
         })
     } catch (error) {
         res.send(error)
+        console.log(error);
     }
 
 }

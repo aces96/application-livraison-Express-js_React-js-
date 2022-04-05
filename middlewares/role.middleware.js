@@ -18,4 +18,4 @@ exports.checkAdminRole = async (req,res, next)=>{
 
 }
 
-export
+exports.emailValidator = (req,res)

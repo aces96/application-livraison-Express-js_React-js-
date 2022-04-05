@@ -11,7 +11,7 @@ const Historique = require('../models/historique')
 
 User.hasMany(Order)
 Order.belongsTo(User, {as: 'livreurId'})
-Order.belongsTo(User, {as: 'clientId'})
+
 
 
 Repas.belongsToMany(Order, {through: RepasOrder})
