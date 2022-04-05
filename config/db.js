@@ -4,7 +4,8 @@ const sequelize = new Sequelize(
     'application livraison',
     'root',
     null,
-    {host: 'localhost', dialect: 'mysql'}
+    {host: 'localhost', dialect: 'mysql'},
+    {query:{raw:true}}
 )
 
 
