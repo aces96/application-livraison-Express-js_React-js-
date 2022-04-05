@@ -16,7 +16,8 @@ exports.signUp = async (req, res)=>{
             email: req.body.email,
             password: req.body.password,
             passwordConfirm: req.body.passwordConfirm,
-            telephone: req.body.telephone
+            telephone: req.body.telephone,
+            role: req.body.role
         })
         
         console.log('done');
