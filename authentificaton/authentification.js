@@ -1,6 +1,7 @@
 const User = require("../models/user")
 const jwt = require("jsonwebtoken")
 const dotenv = require('dotenv').config();
+const {logger} = require('../utils/logger/logger')
 
 
 
@@ -19,18 +20,16 @@ exports.signUp = async (req, res)=>{
             telephone: req.body.telephone,
         })
         
-        console.log('done');
         const token = jwt.sign({id: user.id, role: user.role}, process.env.SECRET_KEY, {expiresIn: process.env.EXPIRE_IN})
         
-        console.log(token)    
-
+        logger.log('info', '')
         res.status(201).json({
             user: user,
             token: token
         })
         
     } catch (error) {
-
+        logger.log('error', error)
         res.send(error)
         
     }
@@ -47,6 +46,7 @@ exports.signIn = async (req,res)=>{
         const user = await User.findOne({where: {email: email}})
     
         if(!user || !user.password == password){
+            logger.log('info', 'email or password not correct')
             res.status(401).json({
                 message: 'email or password not correct'
             })
@@ -55,6 +55,7 @@ exports.signIn = async (req,res)=>{
                 expiresIn: process.env.EXPIRE_IN
             })
 
+            logger.log('info', 'success')
             res.status(201).json({
                 message: 'success',
                 token: token
@@ -64,7 +65,7 @@ exports.signIn = async (req,res)=>{
 
 
     } catch (error) {
-
+        logger.log('error', error)
         res.status(401).send(error)
         
     }

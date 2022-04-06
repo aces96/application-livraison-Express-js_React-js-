@@ -1,4 +1,5 @@
 const {Order,Repas,Facture,RepasOrder} = require('../config/migration')
+const {logger} = require('../utils/logger/logger')
 const nodemailer = require("nodemailer");
 
 
@@ -44,16 +45,17 @@ exports.createFacture = async (req,res)=>{
             to: "esraidi12@gmail.com", 
             subject: "facture de l'ordre",
             text: "test", 
-            html: "<b>Hello world?</b>", 
+            html: "<b>Facture de l'order</b>", 
         });
     
     
-    
+        logger.log('info', 'facture created successfully and the email is sent')
         res.status(200).json({
             message: 'facture created successfully'
         })
         
     } catch (error) {
+        logger.log('error', error)
         res.send(error)
         
     }
