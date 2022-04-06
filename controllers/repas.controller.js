@@ -1,4 +1,4 @@
-const {Repas} = require('../config/migration')
+const {Repas, Categorie} = require('../config/migration')
 const multer = require('multer')
 
 
@@ -42,15 +42,18 @@ exports.getAllRepas = async (req,res)=>{
 exports.createRepas = async (req,res)=>{
         try {
 
-            const {name,description,prix} = req.body
+            const {name,description,prix, categorie} = req.body
             const image = req.file.path
             console.log(image);
+
+            const categorieId = await Categorie.findOne({where: {type: categorie}})
         
             const repas = await Repas.create({
                 name: name,
                 image: image,
                 description: description,
-                prix: prix
+                prix: prix,
+                CategorieId: categorieId.id
             })
 
             res.status(200).json({

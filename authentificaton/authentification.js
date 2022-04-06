@@ -17,11 +17,10 @@ exports.signUp = async (req, res)=>{
             password: req.body.password,
             passwordConfirm: req.body.passwordConfirm,
             telephone: req.body.telephone,
-            role: req.body.role
         })
         
         console.log('done');
-        const token = jwt.sign({id: user.id}, process.env.SECRET_KEY, {expiresIn: process.env.EXPIRE_IN})
+        const token = jwt.sign({id: user.id, role: user.role}, process.env.SECRET_KEY, {expiresIn: process.env.EXPIRE_IN})
         
         console.log(token)    
 
@@ -52,7 +51,7 @@ exports.signIn = async (req,res)=>{
                 message: 'email or password not correct'
             })
         }else {
-            const token = jwt.sign({id: user.id}, process.env.SECRET_KEY, {
+            const token = jwt.sign({id: user.id, role: user.role}, process.env.SECRET_KEY, {
                 expiresIn: process.env.EXPIRE_IN
             })
 

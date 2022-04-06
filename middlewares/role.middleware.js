@@ -1,9 +1,13 @@
 
 
-exports.checkAdminRole = async (req,res, next)=>{
+exports.checkAdminRole =  (req,res, next)=>{
     let token = req.headers.authorization
 
-    if(token && token.includes('bearer')){
+    if(!token){
+        res.status(400).json({
+            message: 'you dont have access to this service'
+        })
+    }else{
         token = req.headers.authorization.split(" ")[1]
     }
 
@@ -16,19 +20,30 @@ exports.checkAdminRole = async (req,res, next)=>{
     }else if(payload.role == 'admin'){
         next()
     }
-
-
 }
 
-exports.emailValidator = (req,res,next)=>{
-    const email = req.body.email
-    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
-    if(!regex.test(email)){
+
+exports.checkLivreurRole = (req,res,next)=>{
+    let token = req.headers.authorization
+
+    if(!token){
         res.status(400).json({
-            message: 'please enter a valid email'
+            message: 'you dont have access to this service'
         })
     }else{
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const payload = jwt.verify(token, process.env.SECRET_KEY)
+
+    if(!payload.role == 'livreur'){
+        res.status(400).json({
+            message: "you dont have access to this service"
+        })
+    }else if(payload.role == 'livreur'){
         next()
     }
-}
+
+} 
+
