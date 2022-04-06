@@ -1,4 +1,5 @@
 const {Order,Repas,RepasOrder} = require('../config/migration')
+const {logger} = require('../utils/logger/logger')
 const jwt = require('jsonwebtoken')
 
 
@@ -18,14 +19,18 @@ exports.getAllOrders = async (req,res)=>{
             res.status(204).json({
                 message: 'no orders found'
             })
+            logger.log('info', 'no orders found')
         }
 
         res.status(200).json({
             message: 'success',
             orders: orders
         })
+        logger.log('info', 'success')
+
         
     } catch (error) {
+        logger.log('error', 'error while getting all orders')
         res.send(error)
         
     }
@@ -54,11 +59,8 @@ exports.submitOrder = async (req,res)=>{
         //     }
         // }
 
-        console.log('here')
 
         const repa = await Repas.findOne({where: {name: repas}})
-        console.log(repa);
-        console.log(Norder.id)
         const repasOrder  = await RepasOrder.create({
             quantity: quantity,
             RepaId: repa.id,
@@ -70,7 +72,7 @@ exports.submitOrder = async (req,res)=>{
         })
     } catch (error) {
         res.send(error)
-        console.log(error);
+        logger.log('error', 'error while submit order')
     }
 
 }
@@ -87,6 +89,8 @@ exports.updateOrderStatus = async (req,res)=>{
             res.status(400).json({
                 message: 'please insert a status or id'
             })
+            logger.log('info', 'error while getting all orders')
+
         }
 
 
@@ -96,8 +100,11 @@ exports.updateOrderStatus = async (req,res)=>{
             message: 'status updated successfully',
             updateStatus
         })
+        logger.log('info', 'status updated successfully')
+
     } catch (error) {
         res.send(error)
+        logger.log('error', 'error when updating order status ')
         
     }
 }
@@ -114,8 +121,12 @@ exports.deleteOrder = async (req,res)=>{
             message: 'order deleted successfully',
             order
         })
+        logger.log('info', 'order deleted successfully')
+
     } catch (error) {
         res.send(error)
+        logger.log('error', 'error when deleting order')
+
     }
 }
 

@@ -25,7 +25,6 @@ exports.getAllCategorie = async (req,res)=>{
 
 exports.addCategorie = async (req,res)=>{
         const {type} = req.body.type
-
         if(!type){
             res.status(400).json({
                 message: 'please insert a categorie type',
