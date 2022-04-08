@@ -1,9 +1,11 @@
 
-GET   http://localhost:8000/api/order
+POST  http://localhost:8000/api/facture/3
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6ImxpdnJldXIiLCJpYXQiOjE2NDkyNzQwMTMsImV4cCI6MTY1NzA1MDAxM30.NHXatqe9Cz0cv_obee2riG_Ha1C00ca9-_BFaU3FOiE
 
-
+{
+    "totalPrice": "200"
+}
 
 
 

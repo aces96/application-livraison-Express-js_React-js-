@@ -1,4 +1,4 @@
-const {Order,Repas,Facture,RepasOrder} = require('../config/migration')
+const {Order,Repas,Facture,RepasOrder,User} = require('../config/migration')
 const {logger} = require('../utils/logger/logger')
 const nodemailer = require("nodemailer");
 
@@ -7,6 +7,7 @@ exports.createFacture = async (req,res)=>{
     const orderId = req.params.id
     const totalPrice = req.body.totalPrice
     const order = await Order.findOne({raw: true},{where:{id: orderId}})
+    const user = await User.findOne({where: {id: order.UserId}})
     const repasOrder = await RepasOrder.findAll({raw: true},{where: {OrderId: orderId}})
     console.log(repasOrder)
     const repas = await Repas.findAll({raw: true}, {where: {id: repasOrder.RepaId}})
@@ -35,7 +36,7 @@ exports.createFacture = async (req,res)=>{
             service: 'outlook',
             debug: true, 
             auth: {
-            user: `nOOne0001@outlook.fr`, 
+            user: `achesr001@outlook.com`, 
             pass: `noone@@..`, 
             },
         });
@@ -45,7 +46,9 @@ exports.createFacture = async (req,res)=>{
             to: "esraidi12@gmail.com", 
             subject: "facture de l'ordre",
             text: "test", 
-            html: "<b>Facture de l'order</b>", 
+            html: `<b>Facture de l'order</b>
+                    ${user.email}
+                    salma`, 
         });
     
     
