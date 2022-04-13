@@ -61,6 +61,7 @@ exports.submitOrder = async (req,res)=>{
 
 
         const repa = await Repas.findOne({where: {name: repas}})
+        console.log(repa.id);
         const repasOrder  = await RepasOrder.create({
             quantity: quantity,
             RepaId: repa.id,
@@ -75,6 +76,22 @@ exports.submitOrder = async (req,res)=>{
         logger.log('error', 'error while submit order')
     }
 
+}
+
+
+exports.addLivreur = async (req,res)=>{
+    const idLivreur = req.body.id
+    const idOrder = req.params.id
+
+    
+
+    const order = await Order.update({livreurIdId: idLivreur}, {where: {id: idOrder}})
+
+    res.json({
+        message: 'success',
+        order
+    })
+ 
 }
 
 

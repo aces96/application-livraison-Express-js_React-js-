@@ -12,6 +12,8 @@ exports.createFacture = async (req,res)=>{
     console.log(repasOrder)
     const repas = await Repas.findAll({raw: true}, {where: {id: repasOrder.RepaId}})
 
+    console.log(user.email);
+
     // if(!order.status == 'delivered'){
     //     res.status(400).json({
     //         message: 'order status its not delivered you cant create facture'
@@ -42,13 +44,12 @@ exports.createFacture = async (req,res)=>{
         });
     
         let info = await transporter.sendMail({
-            from: '"nOOne 👻" nOOne0001@outlook.fr', 
-            to: "esraidi12@gmail.com", 
+            from: '"nOOne 👻" achesr001@outlook.com', 
+            to: `esraidi12@gmail.com`, 
             subject: "facture de l'ordre",
             text: "test", 
             html: `<b>Facture de l'order</b>
-                    ${user.email}
-                    salma`, 
+                    ${user.email}`, 
         });
     
     

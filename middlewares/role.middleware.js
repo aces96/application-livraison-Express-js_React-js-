@@ -46,7 +46,7 @@ exports.checkLivreurRole = async (req,res,next)=>{
     }
 
     try {
-        payload =  await jwt.verify(token, process.env.SECRET_KEY)
+        payload =  jwt.verify(token, process.env.SECRET_KEY)
         console.log(payload);
         if(payload.role == "livreur"){
             

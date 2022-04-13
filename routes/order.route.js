@@ -1,7 +1,7 @@
 const express = require("express")
 const {checkLivreurRole, checkAdminRole} = require('../middlewares/role.middleware')
 const Router = express.Router()
-const {getAllOrders,submitOrder,updateOrderStatus,deleteOrder} = require('../controllers/order.controller')
+const {getAllOrders,submitOrder,updateOrderStatus,deleteOrder, addLivreur} = require('../controllers/order.controller')
 
 
 Router.route('/order')
@@ -9,8 +9,11 @@ Router.route('/order')
         .post(submitOrder)
 
 Router.route('/order/:id')
-        .put(checkAdminRole,updateOrderStatus)
+        .put(updateOrderStatus)
         .delete(deleteOrder)
+
+Router.route('/order/livreur/:id')
+        .put(addLivreur)
 
 
 module.exports = Router
