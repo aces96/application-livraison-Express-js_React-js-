@@ -83,6 +83,8 @@ exports.addLivreur = async (req,res)=>{
     const idLivreur = req.body.id
     const idOrder = req.params.id
 
+
+
     
 
     const order = await Order.update({livreurIdId: idLivreur}, {where: {id: idOrder}})
