@@ -2,6 +2,7 @@
   text-align: center;
   height: 100%;
   width: 100vw;
+  overflow-x:none ;
 }
 
 .App-logo {
@@ -45,3 +46,9 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
+
+.cart .cartImage{
+  object-fit: contain;
+} 
+

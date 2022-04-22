@@ -11,7 +11,7 @@ const Header = ()=>{
 
     const styles = {
             height: '60%',
-            width: '90vw',
+            width: '90%',
             background: 'rgb(255, 255, 255,0)',
             marginBottom: '1rem',
             margin: 'auto'

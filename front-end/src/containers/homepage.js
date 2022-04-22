@@ -13,6 +13,7 @@ const Home = ()=>{
         height: '100vh',
         width: '100%',
         margin: 'auto'
+        
     }
 
 
@@ -24,7 +25,7 @@ const Home = ()=>{
             <Navbar/>
             <Header />
             <SearchBar/>
-            <MealsSection/>
+            <MealsSection name= 'MENU'/>
 
         </Box>
     )
