@@ -5,9 +5,11 @@ const authRouter = require('./routes/auth.routing')
 const orderRouter = require('./routes/order.route')
 const repasRouter = require('./routes/repas.route')
 const factureRouter = require('./routes/facture.route')
+const cors = require('cors')
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cors())
 
 app.use('/api', authRouter)
 app.use('/api', orderRouter)

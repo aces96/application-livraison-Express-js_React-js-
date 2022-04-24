@@ -54,7 +54,7 @@ exports.createFacture = async (req,res)=>{
     
     
         logger.log('info', 'facture created successfully and the email is sent')
-        r es.status(200).json({
+        res.status(200).json({
             message: 'facture created successfully'
         })
         
