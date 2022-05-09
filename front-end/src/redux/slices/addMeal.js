@@ -8,12 +8,12 @@ const initialState = {
 
 
 
-export const AddMeal = createSlice({
+export const mealSlice = createSlice({
     name: 'addMeal',
     initialState,
     reducers: {
-        addMeal: (state, action)=>{
-            state.meal.push(action.payload)
+        addMeal: (state, {payload})=>{
+            state.meal = payload
         },
 
         deleteMeal: (state, action)=>{
@@ -21,3 +21,7 @@ export const AddMeal = createSlice({
         }
     }
 }) 
+
+
+export const {addMeal, deleteMeal} = mealSlice.actions;
+export default mealSlice.reducer

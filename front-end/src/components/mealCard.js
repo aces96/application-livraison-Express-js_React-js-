@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import img from '../images/img1.jpg'
 
-export default function MultiActionAreaCard() {
+export default function MultiActionAreaCard(props) {
     return (
         <Card sx={{ width: '100%', height: '100%' }}>
         <CardMedia
@@ -17,11 +17,10 @@ export default function MultiActionAreaCard() {
         />
         <CardContent  sx={{padding: '0%', width: '100%',height: '30%'}}>
           <Typography gutterBottom variant="h5" component="div">
-            MEAL
+            {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            jfbksjghnlvksdkgjspdjglsd,vlskndvrhgpsjfsd,variantrgrbgkjsdjv
-            irhgnvljnsdlhvlsk
+            {props.description}
 
           </Typography>
         </CardContent>

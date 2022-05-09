@@ -6,7 +6,7 @@ const {getAllRepas,createRepas,updateRepas,deleteRepas, upload} = require('../co
 
 Router.route('/repas')
         .get(getAllRepas)
-        .post(checkAdminRole,upload.single('image'),createRepas)
+        .post(upload.single('image'),createRepas)
 
 Router.route('/repas/:id')
         .put(checkAdminRole,updateRepas)

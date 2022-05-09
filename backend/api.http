@@ -1,5 +1,5 @@
 
-POST  http://localhost:8000/api/order/livreur/7
+GET  http://localhost:8000/api/order/livreur/7
 Content-Type: application/json
 
 
