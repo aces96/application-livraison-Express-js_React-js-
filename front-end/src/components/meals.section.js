@@ -48,7 +48,6 @@ const MealsSection = (props)=>{
     }, [])
 
     
-    console.log(meal)
 
 
     return (
@@ -65,7 +64,7 @@ const MealsSection = (props)=>{
                         return (
                             <Grid sx={{height: '380px'}} item xs={4}>
                                     <Box sx={{width: '80%', height: '100%', border: '1px solid black', margin: 'auto' }}>
-                                            <MultiActionAreaCard description={e.description} name={e.name}/>
+                                            <MultiActionAreaCard image={e.image} description={e.description} name={e.name} price= {e.prix}/>
                                     </Box>
                                 </Grid>
 

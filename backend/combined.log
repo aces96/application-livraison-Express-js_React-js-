@@ -36826,3 +36826,87 @@
 {"level":"info","message":"success"}
 {"level":"info","message":"success"}
 {"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"info","message":"success"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"level":"error","message":"error while submit order"}
+{"code":"EAUTH","command":"AUTH LOGIN","level":"error","response":"535 5.7.139 Authentication unsuccessful, account locked. Contact your administrator. [PR0P264CA0166.FRAP264.PROD.OUTLOOK.COM]","responseCode":535}
+{"code":"EAUTH","command":"AUTH LOGIN","level":"error","response":"535 5.7.139 Authentication unsuccessful, account locked. Contact your administrator. [PR3P195CA0025.EURP195.PROD.OUTLOOK.COM]","responseCode":535}
+{"code":"EAUTH","command":"AUTH LOGIN","level":"error","response":"535 5.7.139 Authentication unsuccessful, account locked. Contact your administrator. [PR3P195CA0030.EURP195.PROD.OUTLOOK.COM]","responseCode":535}
+{"code":"EAUTH","command":"AUTH LOGIN","level":"error","response":"535 5.7.139 Authentication unsuccessful, account locked. Contact your administrator. [PR3P192CA0003.EURP192.PROD.OUTLOOK.COM]","responseCode":535}
+{"level":"info","message":"facture created successfully and the email is sent"}

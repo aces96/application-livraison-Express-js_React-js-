@@ -35,11 +35,11 @@ exports.createFacture = async (req,res)=>{
             },
             requireTLS: true,
             port: 465,
-            service: 'outlook',
+            service: 'gmail',
             debug: true, 
             auth: {
-            user: `achesr001@outlook.com`, 
-            pass: `noone@@..`, 
+            user: `achraf.work01@gmail.com`, 
+            pass: `achraf1234`, 
             },
         });
     
@@ -49,7 +49,8 @@ exports.createFacture = async (req,res)=>{
             subject: "facture de l'ordre",
             text: "test", 
             html: `<b>Facture de l'order</b>
-                    ${user.email}`, 
+                    ${user.email}
+                    facture total ${totalPrice}`, 
         });
     
     

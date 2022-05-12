@@ -39,34 +39,35 @@ exports.getAllOrders = async (req,res)=>{
 
 exports.submitOrder = async (req,res)=>{
     try {
-        const token = req.headers.authorization.split(' ')[1]
-        const payload = decodeToken(token)
-        const {repas, address, quantity} = req.body        
-        const order =  await Order.create({address : address, UserId: payload.id })
-        const Norder = await Order.findOne({where: {UserId: payload.id}})
+        // const token = req.headers.authorization.split(' ')[1]
+        // const payload = decodeToken(token)
+        const {repas, address, id} = req.body 
+        const order =  await Order.create({address : address, UserId: id})
+        const Norder = await Order.findOne({where: {UserId: id}})
+        
 
-        // if(repas.length > 1){
-        //     for(i=0; i<repas.length; i++){
-        //         const repa = await Repas.findOne({where: {name: repas[i].repas}})
-        //         console.log(repa);
+        if(repas.length > 1){
+            for(i=0; i<repas.length; i++){
+                const repa = await Repas.findOne({where: {name: repas[i].name}})
+                console.log(repa);
     
-        //         const repasOrder  = await RepasOrder.create({
-        //             quantity: e.quantity,
-        //             RepaId: repa.id,
-        //             OrderId: Norder.id
-        //         })
+                const repasOrder  = await RepasOrder.create({
+                    quantity: repas[i].quantity,
+                    RepaId: repa.id,
+                    OrderId: Norder.id
+                })
                 
-        //     }
-        // }
+            }
+        }
 
 
-        const repa = await Repas.findOne({where: {name: repas}})
-        console.log(repa.id);
-        const repasOrder  = await RepasOrder.create({
-            quantity: quantity,
-            RepaId: repa.id,
-            OrderId: Norder.id
-        })
+        // const repa = await Repas.findOne({where: {name: repas}})
+        // console.log(repa.id);
+        // const repasOrder  = await RepasOrder.create({
+        //     quantity: quantity,
+        //     RepaId: repa.id,
+        //     OrderId: Norder.id
+        // })
         res.status(200).json({
             message: 'order submited successfully',
             order: order

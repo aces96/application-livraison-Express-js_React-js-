@@ -5,12 +5,17 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useSelector } from 'react-redux';
 
 
 
 
 
 const Navbar = ()=>{
+
+    let count = useSelector(state=>state.counterReducer.count)
+
+
     return (<AppBar position='fixed' sx={{backgroundColor: "#323232"}}>
                 <Toolbar sx={{height: "100%"}}>
                     <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
@@ -18,11 +23,11 @@ const Navbar = ()=>{
                     </Typography>
                     <Box sx={{flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'end',height:"100%" }}>
                         <Button  sx={{ my: 2, color: 'white', display: 'block',fontFamily: 'Roboto, sans-serif' }} href='/meals'>Menu</Button>
-                        <Button sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Roboto, sans-serif' }}>Cart</Button>
+                        <Button sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Roboto, sans-serif' }} href='/cart'>Cart</Button>
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: "center", justifyContent:'end',height:"10%"}}>
-                    <Badge badgeContent={1} color="error">
+                    <Badge badgeContent={count} color="error">
                     <ShoppingCartIcon color="primary" />
                     </Badge>
                         <Button href='/signin'  sx={{ my: 2, color: 'white', display: 'block',fontFamily: 'Roboto, sans-serif' }}>Login</Button>

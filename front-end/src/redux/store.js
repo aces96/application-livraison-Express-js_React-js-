@@ -1,13 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from './slices/counterSlice'
 import mealReducer from './slices/addMeal'
-import { composeWithDevTools } from 'redux-devtools-extension';
+import cartReducer from "./slices/cartSlice";
+import modalReducer from './slices/modalSlice'
 
 
 export default configureStore({
     reducer: {
         counterReducer,
-        mealReducer
+        mealReducer,
+        cartReducer,
+        modalReducer
     }, 
     devTools: true
 })
